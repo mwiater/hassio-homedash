@@ -21,3 +21,4 @@ https://developers.home-assistant.io/docs/en/hassio_addon_testing.html
 
 `docker build --build-arg BUILD_FROM="homeassistant/amd64-base:latest" -t local/homedash .`
 
+`docker run -it --rm -v /tmp:/data -p 8888:8888 local/homedash`
