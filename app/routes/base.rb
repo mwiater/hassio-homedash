@@ -14,7 +14,7 @@ module MicrositePlatform
       # @method before
       # Run before all requests
       before do
-        MicrositePlatform::App.settings.log.info("#{self.class} says hello!")
+        #MicrositePlatform::App.settings.log.info("#{self.class} says hello!")
       end
 
       # @method configure

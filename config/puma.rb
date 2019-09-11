@@ -26,13 +26,13 @@ bind       "unix://#{app_path}/tmp/pids/puma.sock"
 port ENV['PORT'] || 3000
 
 debug
-tag 'MicrositePlatform'
+tag 'HomeDash'
 #daemonize true
 #log_requests false
 #quiet
 #stdout_redirect './tmp/logs/access.log', './tmp/logs/error.log', true
 
-workers `nproc`
+#workers `nproc`
 threads 5, 5
 
 # For Puma logs only, see startup stdout on startup. THis does not affect Rack Logs
