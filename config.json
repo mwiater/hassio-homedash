@@ -1,6 +1,6 @@
 {
   "name": "Homdash",
-  "version": "0.17",
+  "version": "0.18",
   "slug": "homedash",
   "description": "Homedash",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -12,5 +12,24 @@
   "schema": {},
   "ports": {
     "8888/tcp": 8888
+  },
+  "map": [
+    "ssl"
+  ],
+  "options": {
+    "log_level": "debug",
+    "ssl": true,
+    "certfile": "fullchain.pem",
+    "keyfile": "privkey.pem"
+  },
+  "schema": {
+    "log_level": "match(^(trace|debug|info|notice|warning|error|fatal)$)",
+    "ssl": "bool",
+    "certfile": "str",
+    "keyfile": "str",
+    "leave_front_door_open": "bool?"
+  },
+  "environment": {
+    "LOG_FORMAT": "{LEVEL}: {MESSAGE}"
   }
 }
