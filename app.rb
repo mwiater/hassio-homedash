@@ -50,7 +50,6 @@ module MicrositePlatform
     end
 
     # Load Routes
-    use Rack::SSL
     use Routes::Static
     use Routes::Assets unless settings.production?
     use Routes::Main
