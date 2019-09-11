@@ -16,3 +16,8 @@ tar cvfz homedash.tar.gz homedash/
 scp root@homeward.duckdns.org:/addons/homedash.tar.gz homedash.tar.gz
 
 https://developers.home-assistant.io/docs/en/hassio_addon_testing.html
+
+# Build on amd64
+
+`docker build --build-arg BUILD_FROM="homeassistant/amd64-base:latest" -t local/homedash .`
+

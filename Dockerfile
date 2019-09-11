@@ -10,6 +10,7 @@ RUN apk update && \
 apk add make gcc musl-dev nodejs && \
   apk add --update ruby && \
   apk add --update libffi-dev \
+           ruby-rdoc \
            ruby-etc \
            ruby-bigdecimal \
            ruby-io-console \
@@ -33,7 +34,7 @@ apk add make gcc musl-dev nodejs && \
 
 COPY . /app/
 
-RUN cd /app && bundle install
+RUN cd /app && gem install bundler && bundle update --bundler && bundle install
 
 RUN chmod a+x /app/dockerRunArm.sh
 
