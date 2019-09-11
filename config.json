@@ -1,6 +1,6 @@
 {
   "name": "Homdash",
-  "version": "0.14",
+  "version": "0.16",
   "slug": "homedash",
   "description": "Homedash",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
