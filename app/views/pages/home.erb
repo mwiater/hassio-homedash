@@ -894,7 +894,7 @@
       var settings = {
         "async": true,
         "crossDomain": true,
-        "url": hassIOUrl+"/api/history/period/"+today+"?filter_entity_id="+sensor,
+        "url": hassIOUrl+"/api/history/period/"+moment().subtract(4, 'hours').format("YYYY-MM-DDTHH:MM:SS.000000+00:00")+"?filter_entity_id="+sensor,
         "method": "GET",
         "headers": {
           "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI4YTA2ZGI3YjQ3YTI0OGQ2ODYxOGUwZDYxYTYyNGI2YyIsImlhdCI6MTU2NzAwNDg0NCwiZXhwIjoxODgyMzY0ODQ0fQ.nT_i3rCArMuunSTsu6VXFbxsuPFuhpdEu1URG_hPsXg",
