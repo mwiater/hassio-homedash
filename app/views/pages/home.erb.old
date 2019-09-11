@@ -1,0 +1,82 @@
+<style>
+.full-width-expander {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.video-background-wrapper {
+  position: relative;
+  background-color: black;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.video-background-wrapper video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.video-background-wrapper .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.logo {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.logo img {
+  //display: none;
+  max-width: 300px;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  .video-background-wrapper {
+    display: none;
+  }
+}
+</style>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col full-width-expander">
+      <div class="video-background-wrapper">
+        <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+          <source src="<%= asset_path 'underwater_loop.mp4' %>" type="video/mp4">
+        </video>
+      </div>
+      <div class="logo">
+        <img src="<%= asset_path 'rhmp-logo.png' %>" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+});
+
+</script>

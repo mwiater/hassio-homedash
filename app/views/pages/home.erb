@@ -1,0 +1,1163 @@
+<style>
+  #loader {
+    display: none;
+  }
+
+  .sk-folding-cube {
+    margin: 20px auto;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    -webkit-transform: rotateZ(45deg);
+            transform: rotateZ(45deg);
+  }
+
+  .sk-folding-cube .sk-cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1); 
+  }
+  .sk-folding-cube .sk-cube:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4caf50;
+    -webkit-animation: sk-foldCubeAngle 1.2s infinite linear both;
+            animation: sk-foldCubeAngle 1.2s infinite linear both;
+    -webkit-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+  }
+  .sk-folding-cube .sk-cube2 {
+    -webkit-transform: scale(1.1) rotateZ(90deg);
+            transform: scale(1.1) rotateZ(90deg);
+  }
+  .sk-folding-cube .sk-cube3 {
+    -webkit-transform: scale(1.1) rotateZ(180deg);
+            transform: scale(1.1) rotateZ(180deg);
+  }
+  .sk-folding-cube .sk-cube4 {
+    -webkit-transform: scale(1.1) rotateZ(270deg);
+            transform: scale(1.1) rotateZ(270deg);
+  }
+  .sk-folding-cube .sk-cube2:before {
+    -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+  }
+  .sk-folding-cube .sk-cube3:before {
+    -webkit-animation-delay: 0.4s;
+            animation-delay: 0.4s; 
+  }
+  .sk-folding-cube .sk-cube4:before {
+    -webkit-animation-delay: 0.6s;
+            animation-delay: 0.6s;
+  }
+  @-webkit-keyframes sk-foldCubeAngle {
+    0%, 10% {
+      -webkit-transform: perspective(140px) rotateX(-180deg);
+              transform: perspective(140px) rotateX(-180deg);
+      opacity: 0; 
+    } 25%, 75% {
+      -webkit-transform: perspective(140px) rotateX(0deg);
+              transform: perspective(140px) rotateX(0deg);
+      opacity: 1; 
+    } 90%, 100% {
+      -webkit-transform: perspective(140px) rotateY(180deg);
+              transform: perspective(140px) rotateY(180deg);
+      opacity: 0; 
+    } 
+  }
+
+  @keyframes sk-foldCubeAngle {
+    0%, 10% {
+      -webkit-transform: perspective(140px) rotateX(-180deg);
+              transform: perspective(140px) rotateX(-180deg);
+      opacity: 0; 
+    } 25%, 75% {
+      -webkit-transform: perspective(140px) rotateX(0deg);
+              transform: perspective(140px) rotateX(0deg);
+      opacity: 1; 
+    } 90%, 100% {
+      -webkit-transform: perspective(140px) rotateY(180deg);
+              transform: perspective(140px) rotateY(180deg);
+      opacity: 0; 
+    }
+  }
+
+  .navbar {
+    margin-left: -15px;
+    margin-right: -15px;
+    padding-left: 0;
+  }
+
+  .navbar .nav-link {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+
+  #statsBar {
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    background: #6c757d;
+  }
+
+  #statsBar .sensor{
+    color: #FFFFFF;
+  }
+ 
+  #sensors {
+    font-size: 1em;
+    color: #6c757d;
+  }
+
+  #sensors .sensor {
+    display: inline-block;
+    margin-right:20px;
+    width: 100%;
+  }
+
+  .navbar .clock-container {
+    display:inline-block;
+    margin-left: 15px;
+    padding: 10px;
+  }
+
+  .navbar .clock-container i {
+    font-size: 1.5em;
+    margin-right: 5px;
+  }
+
+  .navbar .clock-container #clock {
+    font-size: 1.5em;
+  }
+
+  #sensors .sensor canvas#temperatureChart {
+    height: 10px;
+    margin-top: -5px;
+    display:inline-block;
+    margin-left: 10px;
+  }
+
+  #sensors .sensor canvas#humidityChart {
+    height: 10px;
+    margin-top: -5px;
+    display:inline-block;
+    margin-left: 10px;
+  }
+
+  #sensors .sensor canvas#luminanceChart {
+    height: 10px;
+    margin-top: -5px;
+    display:inline-block;
+    margin-left: 10px;
+  }
+
+  #home, #transit, #traffic, #server {
+    display: none;
+  }
+
+  #home .weather .card {
+    padding-top: 15px;
+  }
+
+  #home .weather .dow {
+    text-align: center;
+  }
+
+  #home .weather .temps {
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  #home .weather .condition {
+    text-align: center;
+    font-size: 1em;
+  }
+
+  #home .weather .card .weather-icon {
+    text-align: center;
+  }
+
+  #home .weather .card .weather-icon i {
+    font-size: 5em;
+    margin-top:20px;
+    margin-bottom:20px;
+  }
+
+  #home .weather .card .card-stat-label {
+    display: inline-block;
+    width: 100px;
+  }
+
+  #home .weather .card .card-stat {
+    margin-bottom: 0;
+  }
+
+  #home .weather .card .card-stat .badge {
+    width: 70px;
+    color: #FFFFFF;
+  }
+
+  #server {
+    
+  }
+
+  #server .card {
+    padding: 10px;
+  }
+
+  #server .card h1  {
+    font-size: 2em;
+  }
+
+  #server .card h2 {
+    font-size: 1em;
+  }
+
+  #server .card h2 i {
+    font-size: 1em;
+  }
+
+  #transit {
+    
+  }
+
+  #transit table {
+    margin-bottom: 0;
+  }
+
+  #transit table tr.red {
+    background: #EE2049;
+    color: #FFFFFF;
+  }
+
+   #transit table tr.blue {
+    background: #117FCD;
+    color: #FFFFFF;
+  }
+
+  #transit table tr.green {
+    background: #0CAA58;
+    color: #FFFFFF;
+  }
+
+  #transit table thead th, #transit table tbody tr, #transit table tbody tr td {
+    border-color: #fff;
+  }
+
+  #traffic .card {
+    margin-top:15px;
+    margin-bottom: 15px;
+  }
+
+  #traffic .card table {
+    margin-bottom: 0;
+  }
+
+  #traffic #map {
+    height: 100%;
+    width: 100%;
+    margin-left: -15px;
+  }
+
+</style>
+
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#transit">Transit</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#traffic">Traffic</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#server">Server</a>
+        </li>
+      </ul>
+
+      <div class="clock-container badge badge-secondary">
+        <span class=""><i class="fad fad fa-clock"></i> <span id="clock"></span></span>
+      </div>
+  </nav>
+
+  <div id="statsBar">
+    <div class="row" id="sensors">
+      <div class="col-sm" style="text-align:center;">
+        <div class="sensor">
+          <span class="temperatureBadge"><i class="fad fa-thermometer-half"></i> <span id="temperature">?</span> °F</span>
+          <canvas id="temperatureChart"></canvas>
+        </div>
+      </div>
+      <div class="col-sm" style="text-align:center;">
+        <div class="sensor">
+          <span class="humidityBadge"><i class="fad fa-humidity"></i> <span id="humidity">?</span> %</span>
+          <canvas id="humidityChart"></canvas>
+        </div>
+      </div>
+      <div class="col-sm" style="text-align:center;">
+        <div class="sensor">
+          <span class="luminanceBadge"><i class="fad fa-lightbulb-on"></i> <span id="luminance">?</span> LUX</span>
+          <canvas id="luminanceChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="loader">
+    <div class="row">
+      <div class="col-sm">
+        <div class="sk-folding-cube">
+          <div class="sk-cube1 sk-cube"></div>
+          <div class="sk-cube2 sk-cube"></div>
+          <div class="sk-cube4 sk-cube"></div>
+          <div class="sk-cube3 sk-cube"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="home">
+    <div class="row weather">
+      <div class="col-sm">
+        <div class="card-deck">
+          <div class="card weatherForecastDay0">
+            <h5 class="dow"></h5>
+            <h4 class="temps"></h4>
+            <div class="weather-icon"></div>
+            <h5 class="condition"></h5>
+            <div class="card-body">
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-sunrise'></i> Sunrise</small>
+                <small class="badge badge-pill badge-success sunrise"></small>
+              </p>
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-sunset'></i> Sunset</small>
+                <small class="badge badge-pill badge-success sunset"></small>
+              </p>
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-humidity'></i> Avg Humidity</small>
+                <small class="badge badge-pill badge-success avghumidity"></small>
+              </p>
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-raindrops'></i> Precipitation</small>
+                <small class="badge badge-pill badge-success totalprecip_mm"></small>
+              </p>
+            </div>
+          </div>
+
+          <div class="card weatherForecastDay1">
+            <h5 class="dow"></h5>
+            <h4 class="temps"></h4>
+            <div class="weather-icon"><i class="fad fa-sun"></i></div>
+            <h5 class="condition"></h5>
+            <div class="card-body">
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-sunrise'></i> Sunrise</small>
+                <small class="badge badge-pill badge-success sunrise"></small>
+              </p>
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-sunset'></i> Sunset</small>
+                <small class="badge badge-pill badge-success sunset"></small>
+              </p>
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-humidity'></i> Avg Humidity</small>
+                <small class="badge badge-pill badge-success avghumidity"></small>
+              </p>
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-raindrops'></i> Precipitation</small>
+                <small class="badge badge-pill badge-success totalprecip_mm"></small>
+              </p>
+            </div>
+          </div>
+
+          <div class="card weatherForecastDay2">
+            <h5 class="dow"></h5>
+            <h4 class="temps"></h4>
+            <div class="weather-icon"><i class="fad fa-sun"></i></div>
+            <h5 class="condition"></h5>
+            <div class="card-body">
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-sunrise'></i> Sunrise</small>
+                <small class="badge badge-pill badge-success sunrise"></small>
+              </p>
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-sunset'></i> Sunset</small>
+                <small class="badge badge-pill badge-success sunset"></small>
+              </p>
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-humidity'></i> Avg Humidity</small>
+                <small class="badge badge-pill badge-success avghumidity"></small>
+              </p>
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-raindrops'></i> Precipitation</small>
+                <small class="badge badge-pill badge-success totalprecip_mm"></small>
+              </p>
+            </div>
+          </div>
+
+          <div class="card weatherForecastDay3">
+            <h5 class="dow"></h5>
+            <h4 class="temps"></h4>
+            <div class="weather-icon"><i class="fad fa-sun"></i></div>
+            <h5 class="condition"></h5>
+            <div class="card-body">
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-sunrise'></i> Sunrise</small>
+                <small class="badge badge-pill badge-success sunrise"></small>
+              </p>
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-sunset'></i> Sunset</small>
+                <small class="badge badge-pill badge-success sunset"></small>
+              </p>
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-humidity'></i> Avg Humidity</small>
+                <small class="badge badge-pill badge-success avghumidity"></small>
+              </p>
+              <p class="card-text card-stat">
+                <small class="card-stat-label"><i class='fad fa-fw fa-raindrops'></i> Precipitation</small>
+                <small class="badge badge-pill badge-success totalprecip_mm"></small>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="transit">
+    <div class="row">
+      <div class="col-sm">
+        <div class="card">
+          <table class="table">
+            <thead>
+              <th scope="col"><strong>Hollywood TC</strong></th>
+              <th scope="col"><strong>Arrival Time</strong></th>
+              <th scope="col"><strong>Arriving In</strong></th>
+              <th scope="col"><strong>Train</strong></th>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="traffic">
+    <div class="row">
+      <div class="col-sm">
+        <div id="map"></div>
+      </div>
+    </div>
+    <div class="row travelTime">
+      <div class="col-sm">
+        <div class="card">
+          <table class="table table-striped table-sm" id="travelTime">
+            <thead>
+              <th scope="col"><strong>Departure Time</strong></th>
+              <th scope="col"><strong>Arrival Time</strong></th>
+              <th scope="col"><strong>Duration</strong></th>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="server">
+    <div class="row">
+      <div class="col-sm">
+        <div class="card-deck">
+
+          <div class="card cpu">
+            <h1>CPU</h1>
+            <h2>
+              <i class="fad fa-fw fa-microchip"></i> <span id="cpu_temp"></span> °F</span>
+            </h2>
+            <div class="card-body">
+              <canvas id="glances_cpu_temp"></canvas>
+            </div>
+
+            <h2>
+              <i class="fad fa-fw fa-microchip"></i> <span id="cpu_used"></span> % Used</span>
+            </h2>
+            <div class="card-body">
+              <canvas id="glances_cpu_used"></canvas>
+            </div>
+
+          </div>
+          
+          <div class="card ram">
+            <h1>RAM</h1>
+            <h2>
+              <i class="fad fa-fw fa-memory"></i> <span id="ram_used_percent"></span> % Used</span>
+            </h2>
+            <div class="card-body">
+              <canvas id="glances_ram_used_percent"></canvas>
+            </div>
+
+            <h2>
+              <i class="fad fa-fw fa-memory"></i> <span id="ram_free"></span> MB Free</span>
+            </h2>
+            <div class="card-body">
+              <canvas id="glances_ram_free"></canvas>
+            </div>
+          </div>
+
+          <div class="card disk">
+            <h1>Disk</h1>
+            <h2>
+              <i class="fad fa-fw fa-hdd"></i> <span id="disk_used_percent"></span> % Used</span>
+            </h2>
+            <div class="card-body">
+              <canvas id="glances_disk_used_percent"></canvas>
+            </div>
+
+            <h2>
+              <i class="fad fa-fw fa-hdd"></i> <span id="disk_free"></span> GB Free</span>
+            </h2>
+            <div class="card-body">
+              <canvas id="glances_disk_free"></canvas>
+            </div>
+
+          </div>
+
+          <div class="card swap">
+            <h1>SWAP</h1>
+            <h2>
+              <i class="fad fa-fw fa-save"></i><span id="swap_used_percent"></span> % Used</span>
+            </h2>
+            <div class="card-body">
+              <canvas id="glances_swap_used_percent"></canvas>
+            </div>
+
+            <h2>
+              <i class="fad fa-fw fa-save"></i><span id="swap_free"></span> GB Free</span>
+            </h2>
+            <div class="card-body">
+              <canvas id="glances_swap_free"></canvas>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="debug">
+    <div class="row">
+      <div class="col-sm">
+        <div class="card">
+          <table class="table table-striped table-sm" id="travelTime">
+            <thead>
+              <th scope="col"><strong>Variable</strong></th>
+              <th scope="col"><strong>Value</strong></th>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+<script>
+  var windowHeight;
+  var windowWidth;
+  var navbarHeight;
+  var navbarWidth;
+  var travelTimeHeight;
+  var travelTimeWidth;
+  var serverSensorCount = 0;
+  var serverSensorTotal = 8;
+  var today = moment().format("YYYY-MM-DDT00:00:00.000000+00:00");
+
+  $(document).ready(function() {
+    function setUI(){
+      windowHeight = $(window).height();
+      windowWidth = $(window).width();
+      
+      navbarHeight = $(".navbar").innerHeight();
+      navbarWidth = $(".navbar").width();
+
+      statsBarHeight = $("#statsBar").innerHeight();
+      statsBarWidth = $("#statsBar").width();
+
+      $("#loader").show();
+      $("#loader .row .sk-folding-cube").css("display", "block");
+      $("#loader .row .sk-folding-cube").css("margin-top", ((windowHeight - navbarHeight - statsBarHeight)/2)-40);
+    }
+
+    setUI();
+
+    //
+    // CLOCK
+    //
+
+    var clockTime = moment((new Date()).getTime()).format('h:mm A');
+    $("#clock").html(clockTime);
+    // CLOCK
+    var clock = setInterval(function(){
+      var clockTime = moment((new Date()).getTime()).format('h:mm A');
+      $("#clock").html(clockTime);
+    }, 5000);
+
+    var map;
+    mapboxgl.accessToken = 'pk.eyJ1IjoicG9ydGxhbmRiZWVyIiwiYSI6ImNqeXlqNGl5NTE4aW0zYm9iMGhmdmtieHAifQ.oBZdLayPV7hqPaq2S4nnVg';
+
+    var hassIOUrl = "https://homeward.duckdns.org:8123";
+
+    $('body').bootstrapMaterialDesign();
+
+    $( window ).on( 'hashchange', function( e ) {
+      hasher();
+    });
+
+    function hasher(){
+      // HASH NAVIGATION
+
+      if(window.location.hash) {
+        $("#loader").show();
+        $("#home").hide();
+        $("#transit").hide();
+        $("#traffic").hide();
+        $("#server").hide();
+        $("#debug").hide();
+
+        switch(window.location.hash){
+          case "#home":
+            $("#statsBar").css("margin-bottom", 15);
+
+            // DATA
+            fetchCurrentWeather();
+            break;
+
+          case "#transit":
+            $("#statsBar").css("margin-bottom", 15);
+
+            // DATA
+            fetchTrimetData();
+            break;
+
+          case "#traffic":
+            $("#statsBar").css("margin-bottom", 0);
+
+            // DATA
+            getMap();
+            break;
+
+          case "#server":
+            $("#statsBar").css("margin-bottom", 15);
+
+            // DATA
+            fetchSensorData("sensor.glances_cpu_temp");
+            fetchSensorData("sensor.glances_cpu_used");
+            fetchSensorData("sensor.glances_disk_free");
+            fetchSensorData("sensor.glances_disk_used_percent");
+            fetchSensorData("sensor.glances_ram_free");
+            fetchSensorData("sensor.glances_ram_used_percent");
+            fetchSensorData("sensor.glances_swap_free");
+            fetchSensorData("sensor.glances_swap_used_percent");
+
+            break;
+
+          case "#debug":
+            $("#statsBar").css("margin-bottom", 15);
+
+            // DATA
+            getDebug();
+            break;
+        }
+      } else {
+        window.location.hash = "home";
+      }
+    }
+
+    hasher();
+
+    var weatherIconsMap = [{"code":1000,"day":"Sunny","night":"Clear","icon":113},{"code":1003,"day":"Partly cloudy","night":"Partly cloudy","icon":116},{"code":1006,"day":"Cloudy","night":"Cloudy","icon":119},{"code":1009,"day":"Overcast","night":"Overcast","icon":122},{"code":1030,"day":"Mist","night":"Mist","icon":143},{"code":1063,"day":"Patchy rain possible","night":"Patchy rain possible","icon":176},{"code":1066,"day":"Patchy snow possible","night":"Patchy snow possible","icon":179},{"code":1069,"day":"Patchy sleet possible","night":"Patchy sleet possible","icon":182},{"code":1072,"day":"Patchy freezing drizzle possible","night":"Patchy freezing drizzle possible","icon":185},{"code":1087,"day":"Thundery outbreaks possible","night":"Thundery outbreaks possible","icon":200},{"code":1114,"day":"Blowing snow","night":"Blowing snow","icon":227},{"code":1117,"day":"Blizzard","night":"Blizzard","icon":230},{"code":1135,"day":"Fog","night":"Fog","icon":248},{"code":1147,"day":"Freezing fog","night":"Freezing fog","icon":260},{"code":1150,"day":"Patchy light drizzle","night":"Patchy light drizzle","icon":263},{"code":1153,"day":"Light drizzle","night":"Light drizzle","icon":266},{"code":1168,"day":"Freezing drizzle","night":"Freezing drizzle","icon":281},{"code":1171,"day":"Heavy freezing drizzle","night":"Heavy freezing drizzle","icon":284},{"code":1180,"day":"Patchy light rain","night":"Patchy light rain","icon":293},{"code":1183,"day":"Light rain","night":"Light rain","icon":296},{"code":1186,"day":"Moderate rain at times","night":"Moderate rain at times","icon":299},{"code":1189,"day":"Moderate rain","night":"Moderate rain","icon":302},{"code":1192,"day":"Heavy rain at times","night":"Heavy rain at times","icon":305},{"code":1195,"day":"Heavy rain","night":"Heavy rain","icon":308},{"code":1198,"day":"Light freezing rain","night":"Light freezing rain","icon":311},{"code":1201,"day":"Moderate or heavy freezing rain","night":"Moderate or heavy freezing rain","icon":314},{"code":1204,"day":"Light sleet","night":"Light sleet","icon":317},{"code":1207,"day":"Moderate or heavy sleet","night":"Moderate or heavy sleet","icon":320},{"code":1210,"day":"Patchy light snow","night":"Patchy light snow","icon":323},{"code":1213,"day":"Light snow","night":"Light snow","icon":326},{"code":1216,"day":"Patchy moderate snow","night":"Patchy moderate snow","icon":329},{"code":1219,"day":"Moderate snow","night":"Moderate snow","icon":332},{"code":1222,"day":"Patchy heavy snow","night":"Patchy heavy snow","icon":335},{"code":1225,"day":"Heavy snow","night":"Heavy snow","icon":338},{"code":1237,"day":"Ice pellets","night":"Ice pellets","icon":350},{"code":1240,"day":"Light rain shower","night":"Light rain shower","icon":353},{"code":1243,"day":"Moderate or heavy rain shower","night":"Moderate or heavy rain shower","icon":356},{"code":1246,"day":"Torrential rain shower","night":"Torrential rain shower","icon":359},{"code":1249,"day":"Light sleet showers","night":"Light sleet showers","icon":362},{"code":1252,"day":"Moderate or heavy sleet showers","night":"Moderate or heavy sleet showers","icon":365},{"code":1255,"day":"Light snow showers","night":"Light snow showers","icon":368},{"code":1258,"day":"Moderate or heavy snow showers","night":"Moderate or heavy snow showers","icon":371},{"code":1261,"day":"Light showers of ice pellets","night":"Light showers of ice pellets","icon":374},{"code":1264,"day":"Moderate or heavy showers of ice pellets","night":"Moderate or heavy showers of ice pellets","icon":377},{"code":1273,"day":"Patchy light rain with thunder","night":"Patchy light rain with thunder","icon":386},{"code":1276,"day":"Moderate or heavy rain with thunder","night":"Moderate or heavy rain with thunder","icon":389},{"code":1279,"day":"Patchy light snow with thunder","night":"Patchy light snow with thunder","icon":392},{"code":1282,"day":"Moderate or heavy snow with thunder","night":"Moderate or heavy snow with thunder","icon":395}];
+
+    function fetchCurrentWeather(){
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://api.apixu.com/v1/forecast.json?key=1074257577cb4ba4b6a154122191408&q=97212&days=4",
+        "method": "GET",
+      }
+
+      $.ajax(settings).done(function (currentWeather) {
+        console.log("fetchCurrentWeather()", currentWeather);
+
+        var fetchedDays = currentWeather.forecast.forecastday.length
+
+        forcastDayIndex = [1,2,3];
+        var todayPlus1 = 1;
+        var todayPlus2 = 2;
+        var todayPlus3 = 3;
+
+        var missingDay = false;
+
+        // CURRENT
+        $("#home .weather .card.weatherCurrent .card-title").html(currentWeather.current.condition.text);
+
+        $.each([0,1,2,3], function(index) {
+          if(index === 0){
+            var dow = "Today"
+          } else {
+            if(typeof currentWeather.forecast.forecastday[index] !== "undefined"){
+              var dow = moment(currentWeather.forecast.forecastday[index].date).format("dddd");
+            } else {
+              missingDay = true;
+            }
+          }
+
+          if(!missingDay){
+            conditionCode = currentWeather.forecast.forecastday[index].day.condition.code;
+            var icon = _.find(weatherIconsMap, function(weatherIcon) { return weatherIcon.code === conditionCode; }).icon;
+
+            $("#home .weather .card.weatherForecastDay"+index+" .weather-icon").html("<img src='apixu/day/"+icon+".png' />");
+            $("#home .weather .card.weatherForecastDay"+index+" .dow").html(dow);
+            $("#home .weather .card.weatherForecastDay"+index+" .temps").html("<i class='fad fa-fw fa-thermometer-quarter'></i> "+currentWeather.forecast.forecastday[index].day.mintemp_f+"°F -<i class='fad fa-fw fa-thermometer-three-quarters'></i> "+currentWeather.forecast.forecastday[index].day.maxtemp_f+"°F");
+            $("#home .weather .card.weatherForecastDay"+index+" .condition").html(currentWeather.forecast.forecastday[index].day.condition.text);
+            $("#home .weather .card.weatherForecastDay"+index+" .card-text.card-stat .sunrise").html(currentWeather.forecast.forecastday[index].astro.sunrise);
+            $("#home .weather .card.weatherForecastDay"+index+" .card-text.card-stat .sunset").html(currentWeather.forecast.forecastday[index].astro.sunset);
+            $("#home .weather .card.weatherForecastDay"+index+" .card-text.card-stat .mintemp_f").html(currentWeather.forecast.forecastday[index].day.mintemp_f+"°F");
+            $("#home .weather .card.weatherForecastDay"+index+" .card-text.card-stat .maxtemp_f").html(currentWeather.forecast.forecastday[index].day.maxtemp_f+"°F");
+            $("#home .weather .card.weatherForecastDay"+index+" .card-text.card-stat .avghumidity").html(currentWeather.forecast.forecastday[index].day.avghumidity+"%");
+            $("#home .weather .card.weatherForecastDay"+index+" .card-text.card-stat .totalprecip_mm").html(currentWeather.forecast.forecastday[index].day.totalprecip_mm+"mm");
+          } else {
+            $("#home .weather .card.weatherForecastDay"+index).hide();
+          }
+        });
+
+        $("#loader").hide();
+        $("#home").show();
+      });
+    }
+
+    function getMap(){
+      $("#traffic #travelTime tbody").html("");
+
+      map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v9',
+        center: [-122.634765, 45.5217914],
+        zoom: 12
+        //hash: true
+      });
+      map.addControl(new mapboxgl.NavigationControl());
+      map.addControl(new MapboxTraffic());
+
+      map.on('load', function(){
+        $("button.mapboxgl-ctrl-icon").click();
+        $("button.mapboxgl-ctrl-map").hide();
+
+        var routeStart = [-122.6214862, 45.537778];
+        var routeEnd   = [-122.6563638, 45.513664];
+
+        directionsURL = "https://api.mapbox.com/directions/v5/mapbox/driving-traffic/"+routeStart[0]+","+routeStart[1]+";"+routeEnd[0]+","+routeEnd[1]+".json?steps=true&overview=full&geometries=geojson&alternatives=true&access_token="+mapboxgl.accessToken;
+
+        $.get(directionsURL, function(data, err){
+          if(err !== "success"){ console.log("err", err) }
+
+          $.each(data.routes, function(index, route) {
+            console.log("route", route);
+            if(index === 0){
+              lineColor = "#0000ff";
+            } else if(index === 1){
+              lineColor = "#6666ff";
+            } else if(index === 2){
+              lineColor = "#ccccff";
+            }
+            if(index <= 2){
+              var coords                    = route.geometry.coordinates;
+          
+              var routeDuration             = route.duration;
+              
+              var routeNow                  = (new Date()).getTime();
+              var routeNowFormatted         = moment(routeNow).format('h:mm:ss A');
+              
+              var routeDuration             = moment(route.duration*1000);
+              var routeDurationFormattedM   = moment(routeDuration).format("m");
+              var routeDurationFormattedS   = moment(routeDuration).format("s");
+              routeDurationFormatted        = routeDurationFormattedM+" Minutes "+routeDurationFormattedS+" Seconds";
+              
+              var routeArrivalTime          = moment(routeNow + routeDuration);
+              var routeArrivalTimeFormatted = routeArrivalTime.format('h:mm:ss A');
+
+              var trafficTemplate = `<tr id="route${index}" style="background:${lineColor};color: #fff;">` +
+                  `<td><div class="form-check"><input class="form-check-input" type="checkbox" value="" id="workRoute${index}" checked><label class="form-check-label" for="route${index}Check">Show</label></div></td>` +
+                  `<td>${routeNowFormatted}</td>` +
+                  `<td>${routeArrivalTimeFormatted}</td>` +
+                  `<td>${routeDurationFormatted}</td>` +
+                `</tr>`;
+
+              $("#loader").hide();
+              $("#traffic").show();
+              $("#traffic #travelTime tbody").append(trafficTemplate);
+
+              layerData = {
+                "id": "workRoute"+index,
+                "type": "line",
+                "source": {
+                  "type": "geojson",
+                  "data": {
+                    "type": "FeatureCollection",
+                    "features": [{
+                      "type": "Feature",
+                      'properties': {},
+                      "geometry": {
+                        "type": "LineString",
+                        "coordinates": coords
+                      }
+                    }]
+                  }
+                },
+               "layout": {},
+                "paint": {
+                  "line-color": lineColor,
+                  "line-width": 8,
+                  "line-opacity": 0.85
+                }
+              };
+
+              var newLayer = map.addLayer(layerData);
+              console.log(map);
+
+              travelTimeHeight = $("#traffic .travelTime").outerHeight();
+              travelTimeWidth  = $("#travelTime").width();
+
+              $("#map").height(windowHeight - navbarHeight - travelTimeHeight - statsBarHeight);
+              $("#map").width(windowWidth);
+              //$("#map canvas").width(windowWidth);
+              map.resize();
+
+              var bbox = turf.bbox(layerData.source.data);
+              map.fitBounds(bbox, { padding: { top: 50, bottom: 50, left: 50, right: 50 }});
+
+              $("#loader").hide();
+              $("#traffic").show();
+            }
+          });
+
+          marker = new mapboxgl.Marker({ color: '#117FCD' })
+            .setLngLat(routeStart)
+            .addTo(map);
+
+          marker = new mapboxgl.Marker({ color: '#0CAA58' })
+            .setLngLat(routeEnd)
+            .addTo(map);
+        });
+      });
+    }
+
+    $("#traffic").on("change", "input[type=checkbox]", function(data){
+      console.log("map", map);
+      if ($(this).prop("checked")) {
+        map.setLayoutProperty($(this).attr('id'), 'visibility', 'visible');
+      } else {
+        map.setLayoutProperty($(this).attr('id'), 'visibility', 'none');
+      }
+    });
+
+    function resizeChart(data){
+      //console.log("!!!", data);
+    }
+
+    function fetchSensorData(sensor){
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": hassIOUrl+"/api/history/period/"+today+"?filter_entity_id="+sensor,
+        "method": "GET",
+        "headers": {
+          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI4YTA2ZGI3YjQ3YTI0OGQ2ODYxOGUwZDYxYTYyNGI2YyIsImlhdCI6MTU2NzAwNDg0NCwiZXhwIjoxODgyMzY0ODQ0fQ.nT_i3rCArMuunSTsu6VXFbxsuPFuhpdEu1URG_hPsXg",
+        }
+      }
+
+      $.ajax(settings).done(function (response) {
+        console.log("fetchSensorData("+sensor+")", response);
+
+        labelArray = [];
+        valueArray = [];
+        $.each(response[0], function(index, value) {
+          labelArray.push(value.last_updated);
+          valueArray.push(value.state);
+        });
+
+        if(sensor.includes("aeon_labs")){
+          var chartContainer = null;
+          if(sensor.includes("temperature")){
+            chartContainer = "#temperatureChart";
+            $("#sensors #temperature").html(valueArray.slice(-1)[0])
+          } else if(sensor.includes("humidity")){
+            $("#sensors #humidity").html(valueArray.slice(-1)[0])
+            chartContainer = "#humidityChart";
+          } else if(sensor.includes("luminance")){
+            $("#sensors #luminance").html(valueArray.slice(-1)[0])
+            chartContainer = "#luminanceChart";
+          }
+
+          $("#sensors "+chartContainer).css("display", "inline-block");
+          $("#sensors "+chartContainer).css("height", "20px");
+          $("#sensors "+chartContainer).css("width", "40%");
+
+          var ctx = $(chartContainer);
+          const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: labelArray,
+              datasets: [
+                {
+                  data: valueArray
+                }
+              ]
+            },
+            options: {
+              responsive: false,
+              onResize: resizeChart(),
+              legend: {
+                display: false
+              },
+              elements: {
+                line: {
+                  borderColor: '#fff',
+                  borderWidth: 1,
+                  backgroundColor: '#ccc'
+                },
+                point: {
+                  radius: 0
+                }
+              },
+              tooltips: {
+                enabled: false
+              },
+              scales: {
+                yAxes: [
+                  {
+                    display: false
+                  }
+                ],
+                xAxes: [
+                  {
+                    display: false
+                  }
+                ]
+              }
+            }
+          });
+
+          
+          //ctx.height(20);
+        } else {
+          serverSensorCount++;
+
+          var chartContainer = null;
+          if(sensor.includes("glances_cpu_temp")){
+            chartContainer = "#glances_cpu_temp";
+            $("#server #cpu_temp").html(valueArray.slice(-1)[0])
+          } else if(sensor.includes("glances_cpu_used")){
+            $("#server #cpu_used").html(valueArray.slice(-1)[0])
+            chartContainer = "#glances_cpu_used";
+          } else if(sensor.includes("glances_disk_free")){
+            $("#server #disk_free").html(valueArray.slice(-1)[0])
+            chartContainer = "#glances_disk_free";
+          } else if(sensor.includes("glances_disk_used_percent")){
+            $("#server #disk_used_percent").html(valueArray.slice(-1)[0])
+            chartContainer = "#glances_disk_used_percent";
+          } else if(sensor.includes("glances_ram_free")){
+            $("#server #ram_free").html(valueArray.slice(-1)[0])
+            chartContainer = "#glances_ram_free";
+          } else if(sensor.includes("glances_ram_used_percent")){
+            $("#server #ram_used_percent").html(valueArray.slice(-1)[0])
+            chartContainer = "#glances_ram_used_percent";
+          } else if(sensor.includes("glances_swap_free")){
+            $("#server #swap_free").html(valueArray.slice(-1)[0])
+            chartContainer = "#glances_swap_free";
+          } else if(sensor.includes("glances_swap_used_percent")){
+            $("#server #swap_used_percent").html(valueArray.slice(-1)[0])
+            chartContainer = "#glances_swap_used_percent";
+          }
+
+          if(sensor.includes("glances_cpu_load")){
+            // Skip
+          } else {
+            var ctx = $(chartContainer);
+            
+            const chart = new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: labelArray,
+                datasets: [
+                  {
+                    data: valueArray
+                  }
+                ]
+              },
+              options: {
+                responsive: true,
+                onResize: resizeChart(),
+                legend: {
+                  display: false
+                },
+                elements: {
+                  line: {
+                    borderColor: '#676767',
+                    borderWidth: 1
+                  },
+                  point: {
+                    radius: 0
+                  }
+                },
+                tooltips: {
+                  enabled: false
+                },
+                scales: {
+                  yAxes: [
+                    {
+                      display: false
+                    }
+                  ],
+                  xAxes: [
+                    {
+                      display: false
+                    }
+                  ]
+                }
+              }
+            });
+
+            ctx.height(50);
+
+            if(serverSensorCount === serverSensorTotal){
+              serverSensorCount = 0;
+              $("#loader").hide();
+              $("#server").show();
+            }
+          }
+
+        }
+      });
+    }
+
+    function fetchTrimetData() {
+      $("#transit table tbody").html("")
+
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://developer.trimet.org/ws/v2/arrivals/locIDs/8373/json/true/appID/AA8BAC1E42EDE3E1312E7A9E6",
+        "method": "GET"
+      }
+
+      $.ajax(settings).done(function (response) {
+        console.log("fetchTrimetData()", response);
+
+        var arrivalTime;
+        var arrivalTimeFormatted;
+        var arrivingIn;
+
+        var transitNow          = (new Date()).getTime();
+        var transitNowFormatted = moment(transitNow).format('h:mm A');
+
+        var trainColor;
+
+
+        $.each(response.resultSet.arrival, function(index, arrival) {
+          if(arrival.shortSign.toLowerCase().includes("red")){
+            trainColor = "red"
+          } else if(arrival.shortSign.toLowerCase().includes("blue")){
+            trainColor = "blue"
+          } else if(arrival.shortSign.toLowerCase().includes("green")){
+            trainColor = "green"
+          }
+
+          if(arrival.status === "estimated"){
+            arrivalTime = arrival.estimated
+            arrivalTimeFormatted = moment(arrivalTime).format('h:mm A');
+
+          } else {
+            arrivalTime = arrival.scheduled
+            arrivalTimeFormatted = moment(arrivalTime).format('h:mm A');
+          }
+
+          arrivingIn = moment(arrivalTime).diff(moment(transitNow), 'minutes');
+          if(arrivingIn < 1){
+            arrivingIn = "1 Minute";
+          } else if(arrivingIn === 1){
+            arrivingIn = arrivingIn+ " Minute";
+          } else if(arrivingIn > 1){
+            arrivingIn = arrivingIn+ " Minutes";
+          }
+
+          if(arrivalTime >= transitNow){
+            transitTemplate = `<tr class="${trainColor}">` +
+              `<td><i class="fad fa-train mr-4 pr-3 color-${trainColor}"></i></td>` +
+              `<td>${arrivalTimeFormatted}</td>` +
+              `<td>${arrivingIn}</td>` +
+              `<td>${arrival.fullSign}</td>` +
+            `</tr>`;
+
+            $("#transit table tbody").append(transitTemplate);
+          } else {
+            console.log("ALREADY ARRIVED!", arrivalTime, transitNow);
+          }
+        });
+
+        $("#loader").hide();
+        $("#transit").show();
+      });
+    }
+
+    function getDebug(){
+      var debugTemplate = null;
+
+      var debugVars = ["windowHeight", "windowWidth", "navbarHeight", "navbarWidth", "statsBarHeight", "statsBarWidth"]
+
+      $.each(debugVars, function(index, value) {
+        debugTemplate += `<tr>` +
+          `<td><i class="fad fa-window"></i></td>` +
+          `<td>${value}</td>` +
+          `<td>${window[value]}</td>` +
+        `</tr>`;
+      });
+
+      $("#debug table tbody").append(debugTemplate);
+      $("#loader").hide();
+      $("#debug").show();
+    }
+      
+
+    // Apartment Sensors
+    fetchSensorData("sensor.aeon_labs_zw100_multisensor_6_temperature");
+    fetchSensorData("sensor.aeon_labs_zw100_multisensor_6_relative_humidity");
+    fetchSensorData("sensor.aeon_labs_zw100_multisensor_6_luminance");
+
+  });
+</script>

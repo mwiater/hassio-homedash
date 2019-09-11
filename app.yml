@@ -1,0 +1,8 @@
+---
+:name: mp-staging
+:title: MicrositePlatform
+:addons: []
+:features:
+  - apiMode
+:variables: []
+:constants: []

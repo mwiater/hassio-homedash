@@ -1,0 +1,16 @@
+{
+  "name": "Homdash",
+  "version": "0.14",
+  "slug": "homedash",
+  "description": "Homedash",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "application",
+  "boot": "auto",  
+  "hassio_api": true,
+  "apparmor": false,
+  "options": {},
+  "schema": {},
+  "ports": {
+    "8888/tcp": 8888
+  }
+}
