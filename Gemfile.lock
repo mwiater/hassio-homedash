@@ -23,7 +23,7 @@ GEM
       tty-color (~> 0.5)
     puma (4.1.0)
       nio4r (~> 2.0)
-    rack (2.0.7)
+    rack (2.2.3)
     rack-protection (2.0.7)
       rack
     rake (12.3.3)
